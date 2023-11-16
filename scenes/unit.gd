@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Unit
 
 @export var health: int = 100
 @export var damage: int = 20
@@ -16,8 +17,6 @@ var target: CharacterBody2D
 func _ready():
 	agent = $NavigationAgent2D
 	sprite = $Sprite
-	
-	move_to_location(Vector2(110,0))
 	
 func _physics_process(delta):
 	if agent.is_navigation_finished():
