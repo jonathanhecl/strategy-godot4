@@ -18,6 +18,12 @@ func _ready():
 	agent = $NavigationAgent2D
 	sprite = $Sprite
 	
+	var gm = get_node("/root/Main")
+	if is_player:
+		gm.players.append(self)
+	else:
+		gm.enemies.append(self)
+	
 func _physics_process(delta):
 	if agent.is_navigation_finished():
 		return

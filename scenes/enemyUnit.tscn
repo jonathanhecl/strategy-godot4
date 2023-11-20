@@ -6,6 +6,7 @@
 
 [node name="EnemyUnit" instance=ExtResource("1_ayc3a")]
 script = ExtResource("2_lgmw8")
+detect_range = 100.0
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource("2_wp5tr")

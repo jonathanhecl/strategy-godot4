@@ -173,7 +173,27 @@ navigation_polygon = SubResource("NavigationPolygon_7crwe")
 
 [node name="PlayerUnit" parent="." instance=ExtResource("2_0vrcx")]
 position = Vector2(-139, 31)
-is_player = true
+
+[node name="PlayerUnit2" parent="." instance=ExtResource("2_0vrcx")]
+position = Vector2(-139, -1)
+
+[node name="PlayerUnit3" parent="." instance=ExtResource("2_0vrcx")]
+position = Vector2(-139, -33)
+
+[node name="PlayerUnit4" parent="." instance=ExtResource("2_0vrcx")]
+position = Vector2(-139, -65)
+
+[node name="PlayerUnit5" parent="." instance=ExtResource("2_0vrcx")]
+position = Vector2(-139, 63)
 
 [node name="EnemyUnit" parent="." instance=ExtResource("3_ms2ue")]
 position = Vector2(144, -51)
+
+[node name="EnemyUnit2" parent="." instance=ExtResource("3_ms2ue")]
+position = Vector2(144, -19)
+
+[node name="EnemyUnit3" parent="." instance=ExtResource("3_ms2ue")]
+position = Vector2(144, 13)
+
+[node name="EnemyUnit4" parent="." instance=ExtResource("3_ms2ue")]
+position = Vector2(144, 45)
