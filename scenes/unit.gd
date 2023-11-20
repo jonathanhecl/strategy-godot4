@@ -47,16 +47,24 @@ func set_target(new_target):
 	target = new_target
 	
 func try_attack_target():
+	if target == null:
+		return
+		
 	var cur_time = Time.get_unix_time_from_system()
-	
 	if cur_time - last_attack_time < attack_rate:
 		return
 		
-	target.take_damage(damage)
+	target.take_damege(damage)
 	last_attack_time = cur_time
 
 func take_damege(damage_to_take):
 	health -= damage_to_take
+	
+	sprite.modulate = Color.RED
+	await get_tree().create_timer(0.1).timeout
+	
 	if health <= 0:
 		queue_free()
-	
+		return
+		
+	sprite.modulate = Color.WHITE
