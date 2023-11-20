@@ -8,15 +8,21 @@ func _input(event):
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			try_select_unit()
-		elif event.button_index == MOUSE_BUTTON_RIGHT:
-			try_command_unit()
+				
 
 func try_select_unit():
 	var unit = get_selected_unit()
 	if unit != null and unit.is_player:
-		select_unit(unit)
-	else:
-		unselect_unit()
+		if selected_unit != unit:
+			select_unit(unit)
+			return
+	
+	if unit == null or (unit != null and !unit.is_player):
+		if selected_unit != null:
+			try_command_unit()
+			return
+	
+	unselect_unit()
 	
 func select_unit(unit):
 	unselect_unit()
@@ -42,3 +48,9 @@ func get_selected_unit():
 func try_command_unit():
 	if selected_unit == null:
 		return
+
+	var target = get_selected_unit()
+	if target != null and !target.is_player:
+		selected_unit.set_target(target)
+	else:
+		selected_unit.move_to_location(get_global_mouse_position())
